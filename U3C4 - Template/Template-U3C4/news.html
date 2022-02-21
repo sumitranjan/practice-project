@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+
+import sidebar from "./components/sidebar.js";
+//console.log("sidebar: ",sidebar)
+let sidebar_div = document.getElementById('sidebar');
+sidebar_div.innerHTML = sidebar() ;
+
+import {apiCall,appendArticles} from "./scripts/main.js";
+
+
+var main = document.getElementById("main");
+        main.innerHTML=null;
+
+        let article = JSON.parse(localStorage.getItem('article'));
+
+        let title = document.createElement('div');
+        title.innerText =article.title;
+
+
+        let image = document.createElement("img");
+        image.src=article.urlToImage;;
+
+        let content = document.createElement("div");
+        content.innerText = article.content;
+
+        //console.log(title, image,content)
+
+
+    
+        main.append(title,image,content);
+
+        let input = document.getElementById('searchbar');
+        input.addEventListener('keypress',(e)=> {
+          // console.log("e:",e)
+  
+          if(e.key==='Enter'){
+  
+              let input_value = document.getElementById('searchbar').value;
+  
+              localStorage.setItem("search_term",input_value);
+  
+              window.location.href = "search.html";
+          }
+      })
+
+      let home = document.getElementById('home');
+      home.onclick = () =>{
+            window.location.href = "index.html";
+        }
+
+
+        let homepage = document.getElementById('homepage');
+        homepage.onclick = () =>{
+            window.location.href = "index.html";
+        }
+
+</script>

@@ -1,0 +1,39 @@
+#container{
+    display: flex;
+}
+#sidebar{
+    flex:2;
+    border: 1px solid black;
+    padding: 10px;
+}
+#sidebar>div{
+    width: 155px;
+    border:2px solid red;
+    background-color: orange;
+    font-weight: bold;
+    padding:10px;
+    margin: 10px;
+}
+#sidebar>input{
+    height:35px;
+    margin: 10px;
+}
+#main{
+    flex:8;
+    border: 1px solid black;
+}
+#news{
+    border:1px solid black;
+    display:flex;
+}
+#news>div{
+    width:200px;
+    border:1px solid black;
+
+}
+#news>img{
+    width:50%;
+    height: 200px;
+    /* border:1px solid blue; */
+    
+}
